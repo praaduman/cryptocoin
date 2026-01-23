@@ -10,7 +10,7 @@ const Header = () => {
     <header>
         <div className="main-container inner">
             <Link href="/">
-                <Image src="logo.svg" alt="logo" width={60} height={15} />
+                <Image src="/logo.svg" alt="logo" width={60} height={15} />
             </Link>
             <nav>
                 <Link href="/" className={cn('nav-link',{
