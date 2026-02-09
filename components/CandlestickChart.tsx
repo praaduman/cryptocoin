@@ -118,7 +118,7 @@ const fetchOHLCData = async (selectedPeriod: Period) => {
   }, [ohlc, period]);
 
   return (
-    <div id="candlestick-chart">
+    <div id="candlestick-chart" >
       <div className="chart-header">
         <div className="flex-1">{children}</div>
       </div>
