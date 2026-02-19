@@ -351,15 +351,16 @@
     }
   }
 
- .home-grid {
-  @apply flex items-start gap-6;
+.home-grid {
+  @apply flex flex-col gap-6 lg:flex-row lg:items-start;
 }
 
 .coin-overview-wrapper {
-  @apply flex-1 min-w-0;
+  @apply w-full lg:flex-1 lg:min-w-0;
 }
+
 .trending-coins-wrapper {
-  @apply flex-shrink-0 w-150; 
+  @apply w-full lg:flex-shrink-0 lg:w-80;
 }
   #categories-fallback {
     @apply pt-8 mt-5 w-full bg-dark-500 rounded-xl overflow-hidden;
