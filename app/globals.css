@@ -360,7 +360,7 @@
 }
 
 .trending-coins-wrapper {
-  @apply w-full lg:flex-shrink-0 lg:w-80;
+  @apply w-full lg:flex-shrink-0 lg:w-120;
 }
   #categories-fallback {
     @apply pt-8 mt-5 w-full bg-dark-500 rounded-xl overflow-hidden;
