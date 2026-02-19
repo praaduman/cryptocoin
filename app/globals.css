@@ -359,7 +359,7 @@
   @apply flex-1 min-w-0;
 }
 .trending-coins-wrapper {
-  @apply flex-shrink-0 w-150; /* or whatever fixed width fits — w-72, w-96, etc. */
+  @apply flex-shrink-0 w-150; 
 }
   #categories-fallback {
     @apply pt-8 mt-5 w-full bg-dark-500 rounded-xl overflow-hidden;
