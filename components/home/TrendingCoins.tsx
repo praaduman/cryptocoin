@@ -32,7 +32,7 @@ const TrendingCoins = async () => {
       cell: (coin) => {
         const item = coin.item;
         return (
-          <Link href={`/coin/${item.id}`}>
+          <Link href={`/coins/${item.id}`}>
             <Image src={item.large} alt={item.id} width={36} height={36} />
             <p>{item.name}</p>
           </Link>
