@@ -8,8 +8,6 @@ const CoinOverview = async () => {
   
 
   try {
-    // Server-side fetch of Bitcoin data before rendering
-    // render them parallely using promise.all  
     const[coin, coinOHLCData] =await Promise.all([
        fetcher<CoinDetailsData>(
       '/coins/bitcoin',
@@ -18,8 +16,6 @@ const CoinOverview = async () => {
        fetcher<OHLCData[]>('/coins/bitcoin/ohlc', {
       vs_currency: 'usd',
       days: 1,
-      // interval: 'hourly',  
-      // precision: 'full',
     })
     ])
       
@@ -40,7 +36,6 @@ const CoinOverview = async () => {
   );
 
   } catch (error) {
-    // Graceful UI fallback if API request fails
     console.error('Error fetching coin overview:', error);
     return <CoinOverviewFallback />;
   }

@@ -6,25 +6,20 @@ import { cn } from "@/lib/utils";
 import { TrendingUp, TrendingDown } from "lucide-react";
 import { TrendingCoinsFallback } from './fallback';
 
-// Async Server Component: data is fetched before HTML is rendered
 const TrendingCoins = async () => {
   let trendingCoins;
 
   try {
-    // Fetch trending coin data from CoinGecko via a shared fetch utility
-    // 300 = cache revalidation time (in seconds)
     trendingCoins = await fetcher<{ coins: TrendingCoin[] }>(
       '/search/trending',
       undefined,
       300
     );
   } catch (error) {
-    // If API fails, render a fallback UI instead of breaking the page
     console.error('Error fetching trending coins:', error);
     return <TrendingCoinsFallback />;
   }
 
-  // Column definitions for the reusable DataTable component
   const columns: DataTableColumn<TrendingCoin>[] = [
     {
       header: 'Name',
@@ -45,7 +40,7 @@ const TrendingCoins = async () => {
       cell: (coin) => {
         const item = coin.item;
 
-        // Used to decide color and icon (up/down)
+    
         const isTrendingUp =
           item.data.price_change_percentage_24h.usd >= 0;
 
@@ -81,10 +76,10 @@ const TrendingCoins = async () => {
     <div className='trending-coins'>
       <h4>Trending Coins</h4>
       <DataTable
-        // Only show top 6 trending coins
+    
         data={trendingCoins.coins.slice(0, 6) || []}
         columns={columns}
-        // Stable unique key for React reconciliation
+    
         rowKey={(coin) => coin.item.id}
         tableClassName='trending-coins-table'
         headerCellClassName='py-3'

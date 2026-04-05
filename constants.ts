@@ -90,7 +90,7 @@ export const getChartConfig = (
       '$' + price.toLocaleString(undefined, { maximumFractionDigits: 2 }),
   },
 });
-// we typically use camel case and uderscore to show that these are constants
+
 export const PERIOD_CONFIG: Record<
   Period,
   { days: number | string; interval?: 'hourly' | 'daily' }
@@ -111,7 +111,7 @@ export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
   { value: '3months', label: '3M' },
   { value: '6months', label: '6M' },
   { value: 'yearly', label: '1Y' },
-  // { value: 'max', label: 'Max' },
+  
 ];
 
 export const LIVE_INTERVAL_BUTTONS: { value: '1s' | '1m'; label: string }[] = [

@@ -37,30 +37,28 @@ export async function fetcher<T>(
 
 	return response.json();
 }
-// lib/coingecko.actions.ts
 
 
-// lib/coingecko.actions.ts
+
+
 
 
 export async function searchCoins(query: string): Promise<SearchCoin[]> {
-  // FETCH 1: Get matching coins by name/symbol
   const searchRes = await fetch(`${BASE_URL}/search?query=${encodeURIComponent(query)}`);
   const searchData = await searchRes.json();
-
-  // EXTRACTION: Top 10 coin IDs
+  
   const topCoins = searchData.coins.slice(0, 10);
   const ids = topCoins.map((c: { id: string }) => c.id).join(",");
 
   if (!ids) return [];
 
-  // FETCH 2: Get market data for those IDs
+  
   const marketRes = await fetch(
     `${BASE_URL}/coins/markets?vs_currency=usd&ids=${ids}&price_change_percentage=24h`
   );
   const marketData = await marketRes.json();
 
-  // MERGE: Shape the data to match SearchCoin type
+  
   return marketData.map((coin: any) => ({
     id: coin.id,
     name: coin.name,

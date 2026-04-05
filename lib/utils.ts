@@ -51,7 +51,7 @@ export function trendingClasses(value: number) {
 export function timeAgo(date: string | number | Date): string {
   const now = new Date();
   const past = new Date(date);
-  const diff = now.getTime() - past.getTime(); // difference in ms
+  const diff = now.getTime() - past.getTime(); 
 
   const seconds = Math.floor(diff / 1000);
   const minutes = Math.floor(seconds / 60);
@@ -65,14 +65,13 @@ export function timeAgo(date: string | number | Date): string {
   if (days < 7) return `${days} day${days > 1 ? 's' : ''}`;
   if (weeks < 4) return `${weeks} week${weeks > 1 ? 's' : ''}`;
 
-  // Format date as YYYY-MM-DD
   return past.toISOString().split('T')[0];
 }
 
 export function convertOHLCData(data: OHLCData[]) {
   return data
     .map((d) => ({
-      time: d[0] as Time, // ensure seconds, not ms
+      time: d[0] as Time,
       open: d[1],
       high: d[2],
       low: d[3],
